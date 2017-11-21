@@ -1,0 +1,147 @@
+$card-height: 51rem;
+.card {
+    perspective: 150rem;
+    -mox-perspective: 150rem;
+    position: relative;
+    height: $card-height;
+
+    @include element('side') {
+        font-size: 2rem;
+
+        height: $card-height;
+        @include transition(all .8s ease);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        border-radius: 3px;
+        @include shadow(1.5rem);
+
+
+        @include modifier('front') {
+            background-color: $color-white;
+        }
+
+        @include modifier('back') {
+            background-color: green;
+            @include transform(rotateY(180deg));
+
+            &-1 {
+                background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+            }
+
+            &-2 {
+                background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+            }
+
+            &-3 {
+                background-image: linear-gradient(to right bottom, $color-tertiairy-light, $color-tertiairy-dark);
+            }
+        }
+    }
+
+    &:hover &__side--front {
+        @include transform(rotateY(-180deg));
+    }
+
+    &:hover &__side--back {
+        @include transform(rotateY(0));
+    }
+
+
+    @include element('picture') {
+        background-size: cover;
+        height: 23rem;
+        background-blend-mode: screen;
+        -webkit-clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+
+        @include modifier('1'){
+            background-image: url("../img/nat-5.jpg"), linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+        }
+
+        @include modifier('2') {
+            background-image: url("../img/nat-6.jpg"), linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+        }
+
+        @include modifier('3') {
+            background-image: url("../img/nat-7.jpg"), linear-gradient(to right bottom, $color-tertiairy-light, $color-tertiairy-dark);
+        }
+    }
+
+    @include element('heading') {
+        font-size: 2.8rem;
+        font-weight: 300;
+        text-transform: uppercase;
+        text-align: right;
+        color: $color-white;
+        position: absolute;
+        top: 12rem;
+        right: 2rem;
+        width: 75%;
+    }
+
+    @include element('heading-span'){
+        padding: 1rem 1.5rem;
+        -webkit-box-decoration-break: clone;
+        box-decoration-break: clone;
+
+        @include modifier('1') {
+            background-image: linear-gradient(to right bottom, rgba($color-secondary-light, 0.8), rgba($color-secondary-dark, 0.8));
+        }
+        @include modifier('2') {
+            background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8));
+        }
+        @include modifier('3') {
+            background-image: linear-gradient(to right bottom, rgba($color-tertiairy-light, 0.8), rgba($color-tertiairy-dark, 0.8));
+        }
+    }
+
+    @include element('details') {
+        padding: 3rem;
+
+        ul {
+            list-style: none;
+            width: 80%;
+            margin:0 auto;
+
+            li {
+                text-align: center;
+                font-size: 1.5rem;
+                padding: 1rem;
+                @include not-last {
+                    border-bottom: 1px solid $color-grey-light-2;
+                }
+            }
+        }
+    }
+
+    @include element('cta') {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        text-align: center;
+    }
+
+    @include element('price-box') {
+        text-align: center;
+        color: $color-white;
+        margin-bottom: 8rem;
+    }
+
+    @include element('price-only') {
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    @include element('price-value') {
+        font-size: 6rem;
+        font-weight: 100;
+    }
+}

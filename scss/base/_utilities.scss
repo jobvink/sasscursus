@@ -1,0 +1,31 @@
+/// Block Element
+/// @access public
+/// @param {String} $element - Element's name
+@mixin element($element) {
+    &__#{$element} {
+        @content;
+    }
+}
+
+/// Block Modifier
+/// @access public
+/// @param {String} $modifier - Modifier's name
+@mixin modifier($modifier) {
+    &--#{$modifier} {
+        @content;
+    }
+}
+
+@mixin not-last {
+    &:not(:last-child) {
+        @content;
+    }
+}
+
+.u-center-text {text-align: center;}
+.u-margin-bottom-small {margin-bottom: 1.5rem;}
+.u-margin-bottom-medium {margin-bottom: 4rem;}
+.u-margin-bottom-big {margin-bottom: 8rem;}
+.u-margin-top-big {margin-top: 8rem;}
+.u-margin-top-huge {margin-top: 10rem;}
+

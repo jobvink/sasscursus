@@ -1,0 +1,70 @@
+.header {
+    height: 90vh;
+    background-image: linear-gradient(
+            to right bottom,
+            rgba($color-primary-light, 0.81),
+            rgba($color-primary-dark, 0.80)),
+    url('../img/hero.jpg');
+    background-size: cover;
+    background-position: top;
+    position: relative;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0% 100%);
+
+    @include element('logo-box') {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
+
+    @include element('logo') {
+        height: 3.5rem;
+    }
+
+    @include element('text-box') {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
+}
+
+.heading-primary {
+    color: $color-white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    @include modifier('main') {
+        display: block;
+        font-size: 4rem;
+        font-weight: 400;
+        letter-spacing: 53px;
+        animation-name: moveInLeft;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+
+    @include modifier('sub') {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.75rem;
+        animation: moveInRight 1s ease-out;
+    }
+}
+
+.heading-tertiary {
+    font-size: $font-size-default;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.paragraph {
+    font-size: $font-size-default;
+
+    @include not-last {
+        margin-bottom: 3rem;
+    }
+}

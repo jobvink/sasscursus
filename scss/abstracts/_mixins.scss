@@ -7,9 +7,9 @@
 }
 
 @mixin shadow($y, $x: 0, $blur: 6rem) {
-    -webkit-box-shadow: $x $y $blur rgba(black, .3);
-    -moz-box-shadow: $x $y $blur rgba(black, .3);
-    box-shadow: $x $y $blur rgba(black, .3);
+    -webkit-box-shadow: $x $y $blur rgba(black, .4);
+    -moz-box-shadow: $x $y $blur rgba(black, .4);
+    box-shadow: $x $y $blur rgba(black, .4);
 }
 
 @mixin transition($property){

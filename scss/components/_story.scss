@@ -1,0 +1,70 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    @include shadow(3rem);
+    background-color: rgba($color-white, .6);
+    border-radius: 3px;
+    padding: 6rem;
+    padding-left: 9rem;
+    font-size: $font-size-default;
+    transform: skewX(-12deg);
+
+    & > * {
+        transform: skewX(12deg);
+    }
+
+    @include element('shape') {
+        width: 15rem;
+        height: 15rem;
+        float: left;
+        $circle: circle(50% at 50% 50%);
+        -webkit-shape-outside: $circle;
+        shape-outside: $circle;
+        -webkit-clip-path: $circle;
+        clip-path: $circle;
+        @include transform(translateX(-3rem) skewX(12deg));
+        position: relative;
+    }
+
+    @include element('image') {
+        height: 100%;
+        @include transform(translateX(-4rem) scale(1.4));
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+        @include transition(all .5s);
+    }
+
+    @include element('text') {
+        transform: skewX(12deg);
+    }
+
+    @include element('caption') {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        @include transform(translate(-50%, 20%));
+        color: $color-white;
+        text-transform: uppercase;
+        font-size: 1.7rem;
+        text-align: center;
+        opacity: 0;
+        @include transition(all .5s);
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+
+    &:hover &__caption {
+        opacity: 1;
+        @include transform(translate(-50%, -50%));
+    }
+
+    &:hover &__image {
+        @include transform(translateX(-4rem) scale(1));
+        filter: blur(3px) brightness(80%);
+    }
+
+}

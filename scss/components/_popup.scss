@@ -12,6 +12,11 @@
 
     @include transition(all .4s);
 
+    @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+        -webkit-backdrop-filter: blur(10px);
+        backdrop-filter: blue(10px);
+        background-color: rgba($color-grey-light-2);
+    }
 
 
     @include element('content') {

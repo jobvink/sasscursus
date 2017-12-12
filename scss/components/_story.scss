@@ -11,6 +11,19 @@
 
     & > * {
         transform: skewX(12deg);
+        @include respond(phone) {
+            transform: skewX(0);
+        }
+    }
+
+    @include respond(tab-port) {
+        width: 100%;
+        padding: 4rem;
+        padding-left: 7rem;
+    }
+
+    @include respond(phone) {
+        transform: skewX(0);
     }
 
     @include element('shape') {
@@ -23,6 +36,9 @@
         -webkit-clip-path: $circle;
         clip-path: $circle;
         @include transform(translateX(-3rem) skewX(12deg));
+        @include respond(phone) {
+            @include transform(translateX(-3rem) skewX(0));
+        }
         position: relative;
     }
 
@@ -38,6 +54,9 @@
 
     @include element('text') {
         transform: skewX(12deg);
+        @include respond(phone) {
+            transform: skewX(0);
+        }
     }
 
     @include element('caption') {

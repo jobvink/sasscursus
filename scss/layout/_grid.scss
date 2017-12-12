@@ -13,6 +13,10 @@
         max-width: 50rem;
     }
 
+    @include respond(phone) {
+        max-width: 80%;
+    }
+
     @include clearfix;
 
     [class^="col-"] {
